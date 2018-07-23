@@ -36,8 +36,8 @@ module.exports = {
     },
 
     destroy: (req, res) => {
-        User.findByIdAndRemove(req.params.id, (err, user) => {
-        // req.user.remove((err, user) => {
+        // User.findByIdAndRemove(req.params.id, (err, user) => {
+        req.user.remove((err, user) => {
             if(err) return res.json({ message: "ERROR", payload: null, code: err.code })
             res.json({ message: "SUCCESS", payload: user })
         })
