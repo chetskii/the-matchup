@@ -1,18 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Route, Switch, Redirect } from 'react-router-dom'
+import httpClient from './httpClient'
 import './App.css';
+import Home from './views/Home'
+import SignUp from './views/SignUp'
+import LogIn from './views/LogIn'
+import LogOut from './views/LogOut'
 
 class App extends Component {
+
+  state = {
+    currentUser: httpClient.getCurrentUser()
+  }
+
+  onAuthSuccess() {
+    this.setState({ currentUser: httpClient.getCurrentUser() })
+  }
+
+  onLogOutSuccess() {
+    this.setState({ currentUser: null })
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h1>Upcoming Matches will go here</h1>
       </div>
     );
   }
