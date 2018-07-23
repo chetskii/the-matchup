@@ -31,12 +31,17 @@ class LogIn extends React.Component {
 		const { email, password } = this.state.fields
 		return (
 			<div className="LogIn">
-				<h1>Log In</h1>
-				<form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
-					<input type="text" placeholder="Email" name="email" autoComplete="off" value={email} />
-					<input type="password" placeholder="Password" name="password" autoComplete="off" value={password} />
-					<button>Log In</button>
-				</form>
+				<div className="row">
+					<div className="column column-33 column-offset-33">
+						<h1>Log In</h1>
+						<form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
+							<input type="text" placeholder="Email" name="email" autoComplete="off" value={email} />
+							<input type="password" placeholder="Password" name="password" autoComplete="off" value={password} />
+							<button>Log In</button>
+						</form>
+					</div>
+				</div>
+
 			</div>
 		)
 	}

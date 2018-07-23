@@ -20,8 +20,8 @@ class SignUp extends React.Component {
 		evt.preventDefault()
 		console.log("SIGNING UP")
 		httpClient.signUp(this.state.fields).then((user) => {
-			this.setState({ fields: { name: '', email: '', password: '' }})
-			if(user) {
+			this.setState({ fields: { name: '', email: '', password: '' } })
+			if (user) {
 				this.props.onSignUpSuccess()
 				this.props.history.push('/')
 			}
@@ -31,13 +31,17 @@ class SignUp extends React.Component {
 	render() {
 		return (
 			<div className="SignUp">
-				<h1>Sign Up</h1>
-				<form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
-					<input type="text" placeholder="Name" name="name" autoComplete="off" />
-					<input type="text" placeholder="Email" name="email" autoComplete="off" />
-					<input type="password" placeholder="Password" name="password" autoComplete="off" />
-					<button>Sign Up</button>
-				</form>
+				<div className="row">
+					<div className="column column-33 column-offset-33">
+						<h1>Sign Up</h1>
+						<form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
+							<input type="text" placeholder="Name" name="name" autoComplete="off" />
+							<input type="text" placeholder="Email" name="email" autoComplete="off" />
+							<input type="password" placeholder="Password" name="password" autoComplete="off" />
+							<button>Sign Up</button>
+						</form>
+					</div>
+				</div>
 			</div>
 		)
 	}
