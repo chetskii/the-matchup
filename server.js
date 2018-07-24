@@ -8,7 +8,8 @@ const
 	mongoose = require('mongoose'),
 	MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/the-match-up',
 	PORT = process.env.PORT || 3001,
-	usersRoutes = require('./routes/users.js')
+	usersRoutes = require('./routes/users.js'),
+	matchesRoutes = require('./routes/match.js')
 
 // Connect to MONGO DB
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true }, (err) => {
@@ -25,6 +26,7 @@ app.get('/api', (req, res) => {
 })
 
 app.use('/api/users', usersRoutes)
+app.use('/api/matches', matchesRoutes)
 
 app.get('*', (req, res) => {
 	res.sendFile(`${__dirname}/client/build/index.html`)
