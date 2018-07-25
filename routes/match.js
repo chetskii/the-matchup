@@ -7,5 +7,6 @@ matchRouter.get('/', matchCtrl.index)
 matchRouter.post('/', matchCtrl.create)
 matchRouter.delete('/:id', matchCtrl.destroy)
 matchRouter.get('/:id', matchCtrl.show)
+matchRouter.patch('/:id', matchCtrl.update)
 
 module.exports = matchRouter
