@@ -1,6 +1,7 @@
 import axios from 'axios'
 import jwtDecode from 'jwt-decode'
 
+
 const httpClient = axios.create()
 
 httpClient.getToken = () => {
@@ -27,6 +28,26 @@ httpClient.signUp = function (userInfo) {
 				return jwtDecode(token)
 			} else {
 				return false
+			}
+		})
+}
+
+httpClient.update = function (userInfo) {
+	return this({ method: 'patch', url: `/api/users/me`, data: userInfo })
+		.then((serverResponse) => {
+			if (serverResponse.data.message === "SUCCESS") {
+				const { token } = serverResponse.data.payload
+				this.defaults.headers.common.token = this.setToken(token)
+				return jwtDecode(token)
+			}
+		})
+}
+
+httpClient.delete = function (deletedUser) {
+	return this({ method: 'delete', url: `/api/users/me`, data: deletedUser })
+		.then((serverResponse) => {
+			if (serverResponse.data.message === "SUCCESS") {
+				localStorage.clear()
 			}
 		})
 }

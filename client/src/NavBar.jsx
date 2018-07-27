@@ -9,6 +9,7 @@ const NavBar = (props) => {
 				? (
 					<Fragment>
 						<Link to='/logout'>Log Out</Link>
+						<Link to='/users/edit'>Account</Link>
 					</Fragment>
 				)
 				: (

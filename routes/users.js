@@ -11,6 +11,6 @@ usersRouter.post('/authenticate', usersCtrl.authenticate)
 usersRouter.use(verifyToken)
 usersRouter.get('/:id', usersCtrl.show)
 usersRouter.patch('/me', usersCtrl.update)
-usersRouter.delete('/:id', usersCtrl.destroy)
+usersRouter.delete('/me', usersCtrl.destroy)
 
 module.exports = usersRouter

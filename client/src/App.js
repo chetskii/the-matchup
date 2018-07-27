@@ -9,6 +9,7 @@ import LogOut from './views/LogOut'
 import NavBar from './NavBar'
 import Match from './views/Match'
 import CreateMatch from './views/CreateMatch'
+import EditUser from './views/EditUser'
 
 class App extends Component {
 
@@ -38,13 +39,20 @@ class App extends Component {
           <Route path='/logout' render={(routeProps) => {
             return <LogOut {...routeProps} onLogOutSuccess={this.onLogOutSuccess.bind(this)} />
           }} />
-          <Route exact path='/' component={Home} />
+          <Route path='/users/edit' render={(routeProps) => {
+            return <EditUser {...routeProps} 
+            currentUser={this.state.currentUser}
+            onUpdateSuccess={this.onAuthSuccess.bind(this)}
+            onDeleteSuccess={this.onLogOutSuccess.bind(this)} />
+          }} />
           <Route path='/matches/new' component={CreateMatch} />
           <Route exact path='/matches/:id' component={Match} />
+          <Route exact path='/' component={Home} />
         </Switch>
       </div>
     );
   }
 }
 
+  
 export default App;

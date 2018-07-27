@@ -13,7 +13,6 @@ class Match extends React.Component {
 		const id = this.props.match.params.id
 		apiClient({ method: 'get', url: `/api/matches/${id}` })
 			.then((apiResponse) => {
-				console.log(apiResponse)
 				this.setState({ match: apiResponse.data.payload })
 			})
 	}
