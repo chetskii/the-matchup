@@ -4,8 +4,6 @@ import CommentForm from './CommentForm'
 import { Header, Table, Container } from 'semantic-ui-react'
 import httpClient from '../httpClient'
 
-const apiClient = axios.create()
-
 class Match extends React.Component {
 
 	state = {
@@ -23,15 +21,15 @@ class Match extends React.Component {
 	handleSubmit = (fields) => {
 		const id = this.props.match.params.id
 		httpClient({
-				method: 'post',
-				url: `/api/matches/${id}/posts`,
-				data: fields
+			method: 'post',
+			url: `/api/matches/${id}/posts`,
+			data: fields
 		})
-				.then(response => {
-					console.log(response)
-					this.setState({ match: response.data.payload })
-				})
-}
+			.then(response => {
+				console.log(response)
+				this.setState({ match: response.data.payload })
+			})
+	}
 
 	render() {
 		const { match } = this.state
@@ -67,19 +65,21 @@ class Match extends React.Component {
 								</Table.Row>
 							</Table.Body>
 						</Table>
-						</Container>
-						<ul>
-							{match.predictions.map((p) => {
-								return <li key={p._id}>{p.body}</li>
-							})}
-						</ul>
+					</Container>
+
 				</div>
-						<br />
-						<CommentForm onSubmit={this.handleSubmit} />
+				<br />
+				<CommentForm onSubmit={this.handleSubmit} />
+				<br />
+				<ul>
+					{match.predictions.map((p) => {
+						return <li key={p._id}>{p.body}</li>
+					})}
+				</ul>
 			</div>
 
-					)
-				}
-			}
-			
+		)
+	}
+}
+
 export default Match
