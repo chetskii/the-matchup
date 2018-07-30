@@ -28,7 +28,12 @@ class Home extends React.Component {
 	}
 
 	handleFilterButtonClick(leagueName) {
-		console.log(leagueName)
+		let { filter, matches } = this.state
+
+		this.setState({ filter: leagueName })
+		console.log(filter)
+		const result = matches.filter(match => match.league === filter)
+		return result
 		// when someone clicks a filter button:
 		// record the leagueName in your state as "filter"
 		// only render those matches who's leagueName is equal to the leagueName stored in this.state.filter
@@ -61,7 +66,6 @@ class Home extends React.Component {
 						)
 					})}
 				</List>
-
 
 			</div>
 		)

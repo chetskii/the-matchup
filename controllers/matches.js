@@ -10,7 +10,7 @@ module.exports = {
 	},
 
 	show: (req, res) => {
-		Match.findById(req.params.id, (err, match) => {
+		Match.findById(req.params.id).populate('predictions._by').exec((err, match) => {
 			if (err) return res.json({ message: "ERROR", payload: null, code: err.code })
 			res.json({ message: "SUCCESS", payload: match })
 		})

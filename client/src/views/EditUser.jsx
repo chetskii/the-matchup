@@ -1,6 +1,6 @@
 import React from 'react'
 import httpClient from '../httpClient'
-import { Button, Icon } from 'semantic-ui-react'
+import { Button, Icon, Form, Container } from 'semantic-ui-react'
 
 class EditUser extends React.Component {
 
@@ -40,22 +40,30 @@ class EditUser extends React.Component {
 				<div className="row">
 					<div className="column column-33 column-offset-33">
 						<h2>Edit Account Info</h2>
-						<form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
-							<input type="text" placeholder="Email" name="email" autoComplete="off" />
-							<input type="password" placeholder="Password" name="password" autoComplete="off" />
-							<Button animated='fade'>
-								<Button.Content hidden>
-									<Icon name="save" />
-								</Button.Content>
-								<Button.Content visible>Save Changes</Button.Content>
-							</Button>
-							<Button animated="fade">
-								<Button.Content hidden>
-									<Icon name="trash" />
-								</Button.Content>
-								<Button.Content visible onClick={this.onButtonClick.bind(this)}>Delete Account</Button.Content>
-							</Button>
-						</form>
+						<Container>
+							< Form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)} >
+								<Form.Field>
+									<label>E-Mail</label>
+									<input type="text" placeholder="Email" name="email" autoComplete="off" />
+								</Form.Field>
+								<Form.Field>
+									<label>Password</label>
+									<input type="password" placeholder="Password" name="password" autoComplete="off" />
+								</Form.Field>
+								<Button animated='fade'>
+									<Button.Content hidden>
+										<Icon name="save" />
+									</Button.Content>
+									<Button.Content visible>Save Changes</Button.Content>
+								</Button>
+								<Button animated="fade">
+									<Button.Content hidden>
+										<Icon name="trash" />
+									</Button.Content>
+									<Button.Content visible onClick={this.onButtonClick.bind(this)}>Delete Account</Button.Content>
+								</Button>
+							</Form >
+						</Container>
 					</div>
 				</div>
 			</div>
