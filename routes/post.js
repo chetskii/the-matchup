@@ -19,12 +19,6 @@ postsRouter.get('/:id', (req, res) => {
 postsRouter.use(verifyToken)
 
 postsRouter.post('/', (req, res) => {
-    console.log("meh?")
-    // res.json({ status: "SUCCESS" })
-    // Post.create({ ...req.body, _by: req.user, _match: req.params.matchId }, (err, newPost) => {
-    //     if (err) return res.json({ message: "ERROR", payload: null, code: err.code })
-    //     res.json({ message: "SUCCESS", payload: newPost })
-    // })
     Match.findById(req.params.matchId, (err, match) => {
         match.predictions.push({ ...req.body, _by: req.user })
         match.save((err, updatedMatch) => {

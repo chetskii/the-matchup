@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import CommentForm from './CommentForm'
-import { Header, Table, Container } from 'semantic-ui-react'
+import { Header, Table, Container, List, Divider } from 'semantic-ui-react'
 import httpClient from '../httpClient'
 
 class Match extends React.Component {
@@ -70,12 +70,17 @@ class Match extends React.Component {
 				</div>
 				<br />
 				<CommentForm onSubmit={this.handleSubmit} />
-				<br />
-				<ul>
-					{match.predictions.map((p) => {
-						return <li key={p._id}>{p.body}</li>
-					})}
-				</ul>
+				<Divider />
+				<h3>Predictions</h3>
+				<List>
+					<List.Item>
+						<List.Content>
+							{match.predictions.map((p, n) => {
+						return <List.Description as='h4' key={p._id}>{p._by.name}:  {p.body}</List.Description>
+					})} 
+						</List.Content>
+					</List.Item>
+				</List>
 			</div>
 
 		)
