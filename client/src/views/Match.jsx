@@ -1,5 +1,4 @@
 import React from 'react'
-import axios from 'axios'
 import CommentForm from './CommentForm'
 import { Header, Table, Container, List, Divider } from 'semantic-ui-react'
 import httpClient from '../httpClient'
