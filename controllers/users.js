@@ -30,9 +30,9 @@ module.exports = {
 		if (!req.body.email) delete req.body.email;
 		Object.assign(req.user, req.body)
 		req.user.save((err, updatedUser) => {
-			if(err) return res.json({ message: "ERROR", payload: null, code: err.code })
+			if (err) return res.json({ message: "ERROR", payload: null, code: err.code })
 			const token = signToken(updatedUser)
-			res.json({ message: "SUCCESS", payload: { updatedUser, token} })
+			res.json({ message: "SUCCESS", payload: { updatedUser, token } })
 		})
 	},
 

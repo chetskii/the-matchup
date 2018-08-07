@@ -1,6 +1,7 @@
 import React from 'react'
 import httpClient from '../httpClient';
-import { Form, Button, Container } from 'semantic-ui-react'
+import { Form, Button, Container, Image, Grid, Header, Segment, Message } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 class LogIn extends React.Component {
 
@@ -31,26 +32,25 @@ class LogIn extends React.Component {
 	render() {
 		const { email, password } = this.state.fields
 		return (
-			<div className="LogIn">
-				<div className="row">
-					<div className="column column-33 column-offset-33">
-						<h1>Log In</h1>
+			<div className="login-form">
+				<Grid textAlign="center" style={{ height: "100%" }} verticleAlign="middle">
+					<Grid.Column style={{ maxWidth: 450 }}>
+						<Image centered size='medium' src='https://i.imgur.com/dVDZFMn.png' />
+						<Header as="h2" color="teal" textAlign="center">Log In</Header>
 						<Container>
-							< Form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)} >
-								<Form.Field>
-									<label>E-Mail</label>
-									<input type="text" placeholder="Email" name="email" autoComplete="off" value={email} />
-								</Form.Field>
-								<Form.Field>
-									<label>Password</label>
-									<input type="password" placeholder="Password" name="password" autoComplete="off" value={password} />
-								</Form.Field>
-								<Button type='submit'>Log In</Button>
+							< Form size="large" onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)} >
+								<Segment stacked>
+									<Form.Input fluid icon="mail" iconPosition="left" placeholder="E-mail address" name="email" autoComplete="off" value={email} />
+									<Form.Input fluid icon="lock" iconPosition="left" placeholder="Password" type="password" name="password" autoComplete="off" value={password} />
+									<Button fluid size="large" color="green" type='submit'>Login</Button>
+								</Segment>
 							</Form >
+							<Message>
+								New to us? <Link to='/signup'>Sign Up</Link>
+							</Message>
 						</Container>
-					</div>
-				</div>
-
+					</Grid.Column>
+				</Grid>
 			</div>
 		)
 	}

@@ -17,13 +17,13 @@ class Create extends Component {
 
 	handleChange = (event) => {
 		event.preventDefault()
-		if(event.target.name.includes('[')) {
+		if (event.target.name.includes('[')) {
 			const fieldNames = event.target.name.replace(']', '').split('[')
 			const [team, field] = fieldNames
 			this.setState({
 				match: {
 					...this.state.match,
-					[team]: { ...this.state.match[team], [field]: event.target.value}
+					[team]: { ...this.state.match[team], [field]: event.target.value }
 				}
 			})
 		} else {

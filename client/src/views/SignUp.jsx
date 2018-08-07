@@ -1,6 +1,7 @@
 import React from 'react'
 import httpClient from '../httpClient'
-import { Form, Button, Container } from 'semantic-ui-react'
+import { Form, Button, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 
 class SignUp extends React.Component {
@@ -32,29 +33,47 @@ class SignUp extends React.Component {
 
 	render() {
 		return (
-			<div className="SignUp">
-				<div className="row">
-					<div className="column column-33 column-offset-33">
-						<h1>Sign Up</h1>
-						<Container>
-							< Form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
-								<Form.Field >
-									<label>Name</label>
-									<input type="text" placeholder="Name" name="name" autoComplete="off" />
-								</Form.Field>
-								<Form.Field>
-									<label>E-Mail</label>
-									<input type="text" placeholder="Email" name="email" autoComplete="off" />
-								</Form.Field>
-								<Form.Field>
-									<label>Password</label>
-									<input type="password" placeholder="Password" name="password" autoComplete="off" />
-								</Form.Field>
-								<Button type='submit'>Sign Up</Button>
-							</Form >
-						</Container >
-					</div>
-				</div>
+			<div className="login-form">
+				<Grid textAlign="center" style={{ height: "100%" }} verticleAlign="middle" >
+					<Grid.Column style={{ maxWidth: 450 }} >
+						<Image centered size='medium' src='https://i.imgur.com/dVDZFMn.png' />
+						<Header as="h2" color="teal" textAlign="center">Sign Up</Header>
+						< Form size="large" onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
+							<Segment stacked>
+								<Form.Input
+									fluid icon="user"
+									iconPosition="left"
+									placeholder="Full name"
+									type="text"
+									name="name"
+									autoComplete="off"
+								/>
+								<Form.Input
+									fluid icon="mail"
+									iconPosition="left"
+									placeholder="E-mail address"
+									type="text"
+									name="email"
+									autoComplete="off"
+								/>
+								<Form.Input
+									fluid icon="lock"
+									iconPosition="left"
+									placeholder="Password"
+									type="password"
+									name="password"
+									autoComplete="off"
+								/>
+								<Button color="green" fluid size="large" type='submit'>
+									Sign Up
+									</Button>
+							</Segment>
+						</Form >
+						<Message>
+							Already have an account? <Link to='/login'>Login</Link>
+						</Message>
+					</Grid.Column>
+				</Grid>
 			</div>
 		)
 	}

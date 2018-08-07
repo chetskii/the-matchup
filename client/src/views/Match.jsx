@@ -75,8 +75,8 @@ class Match extends React.Component {
 					<List.Item>
 						<List.Content>
 							{match.predictions.map((p, n) => {
-						return <List.Description as='h4' key={p._id}>{p._by.name}:  {p.body}</List.Description>
-					})} 
+								return <List.Description as='h4' key={p._id}>{p._by.name}:  {p.body}</List.Description>
+							})}
 						</List.Content>
 					</List.Item>
 				</List>

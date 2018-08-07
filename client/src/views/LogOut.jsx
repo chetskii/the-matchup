@@ -4,14 +4,14 @@ import httpClient from '../httpClient'
 
 class LogOut extends React.Component {
 
-    componentDidMount() {
-        httpClient.logOut()
-        this.props.onLogOutSuccess()
-    }
+	componentDidMount() {
+		httpClient.logOut()
+		this.props.onLogOutSuccess()
+	}
 
-    render() {
-        return <Redirect to='/login' />
-    }
+	render() {
+		return <Redirect to='/login' />
+	}
 }
 
 export default LogOut

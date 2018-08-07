@@ -9,11 +9,4 @@ module.exports = {
 			res.json({ message: "SUCCESS", payload: newPost })
 		})
 	}
-
-	// update: (req, res) => {
-	// 	Post.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedPost) => {
-	// 		if (err) return res.json({ message: "ERROR", payload: null, code: err.code })
-	// 		res.json({ message: "SUCCESS", payload: updatedPost })
-	// 	})
-	// }
 }
