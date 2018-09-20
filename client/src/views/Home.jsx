@@ -29,10 +29,8 @@ class Home extends React.Component {
 
 	handleFilterButtonClick(leagueName) {
 		let { filter, matches } = this.state
-
-		this.setState({ filter: leagueName })
 		console.log(filter)
-		const result = matches.filter(match => match.league === filter)
+		let result = matches.filter(match => matches.league === this.setState({ filter: leagueName }))
 		return result
 		// when someone clicks a filter button:
 		// record the leagueName in your state as "filter"
@@ -43,7 +41,7 @@ class Home extends React.Component {
 		const { matches } = this.state
 		const leagueNames = _.uniq(matches.map(m => m.league))
 		return (
-			<div className="Home">
+			<div className="home">
 				<div>
 					<Image centered size='medium' src='https://i.imgur.com/dVDZFMn.png' />
 					<Header as='h1' icon textAlign='center'>
